@@ -10,12 +10,7 @@ simple_plugin(
 
 art_make( SERVICE_LIBRARIES ${G4_LIB_LIST}  ${XERCESCLIB} nutools_G4Base 
          LIB_LIBRARIES 
-                        larsim_PhotonPropagation
-                        larsim_PhotonPropagation_PhotonVisibilityService_service
-#                        lardata_Utilities
-			larsim_Simulation nutools_ParticleNavigation lardataobj_Simulation
-#                        larcorealg_Geometry
-#                        larcore_Geometry_Geometry_service
+                        lardataobj_Simulation
                         nusimdata_SimulationBase
 			nutools_RandomUtils_NuRandomService_service
                         nutools_G4Base
@@ -30,7 +25,6 @@ art_make( SERVICE_LIBRARIES ${G4_LIB_LIST}  ${XERCESCLIB} nutools_G4Base
                         art_Utilities
                         canvas
                         ${MF_MESSAGELOGGER}
-                        
                         ${FHICLCPP}
                         cetlib cetlib_except
                         ${ROOT_GENVECTOR}
@@ -44,12 +38,9 @@ art_make( SERVICE_LIBRARIES ${G4_LIB_LIST}  ${XERCESCLIB} nutools_G4Base
                         ${ROOT_GEOM}
                         ${CLHEP}
                         ${G4_LIB_LIST}
-           MODULE_LIBRARIES larsim_LArG4
-                        larsim_MCCheater_ParticleInventoryService_service
+           MODULE_LIBRARIES
                         lardataalg_MCDumpers
-                        larsim_Simulation nutools_ParticleNavigation lardataobj_Simulation
                         larcorealg_Geometry
- #                       larcore_Geometry_Geometry_service
                         nutools_RandomUtils_NuRandomService_service
                         nusimdata_SimulationBase
                         ${ART_FRAMEWORK_SERVICES_REGISTRY}
@@ -57,7 +48,6 @@ art_make( SERVICE_LIBRARIES ${G4_LIB_LIST}  ${XERCESCLIB} nutools_G4Base
                         ${ART_FRAMEWORK_SERVICES_OPTIONAL_TFILESERVICE_SERVICE}
 			canvas
                         ${MF_MESSAGELOGGER}
-                        
                         ${FHICLCPP}
                         cetlib cetlib_except
                         ${ROOT_GENVECTOR}

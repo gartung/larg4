@@ -18,7 +18,7 @@
 #include "art/Framework/Services/Registry/ServiceMacros.h"
 #include "canvas/Persistency/Provenance/ModuleDescription.h"
 
-#include "larsim/LArG4/ParticleFilters.h" // larg4::PositionInVolumeFilter
+#include "larg4/Core/ParticleFilters.h" // larg4::PositionInVolumeFilter
 #include "nutools/ParticleNavigation/ParticleList.h" // larg4::PositionInVolumeFilter
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
