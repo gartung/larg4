@@ -9,7 +9,7 @@
 // larg4: art based Geant 4 Toolkit
 // 
 //=============================================================================
-// CheckMCParticle_module.hh: Analysis module to analyze the GenParticles 
+// CheckMCParticle_module.hh: Analysis module to analyze the MCParticles
 // in the Event 
 // Author: Hans Wenzel (Fermilab)
 //=============================================================================
@@ -36,10 +36,7 @@
 // Root includes.
 #include "TFile.h"
 #include "TH1F.h"
-#include "TH2F.h"
 #include "TDirectory.h"
-// Other includes.
-#include "CLHEP/Units/SystemOfUnits.h"
 
 using namespace std;
 namespace larg4 {
@@ -58,6 +55,8 @@ public:
 private:
     std::string _myName;
     TH1F* _hnParts;
+    TH1F* _hmomentum;
+    TH1F* _hzpos;
     TDirectory const * _directory;
     TFile * _file;
 

@@ -37,9 +37,6 @@ void larg4::CheckAuxDetHit::beginJob() {
     _hnHits = tfs->make<TH1F>("hnHits", "Number of AuxDetHits", 30, 0,30 );
     _hEdep = tfs->make<TH1F>("hEdep", "Energy deposition in AuxDetHits", 100,0.,4.);
     _hID = tfs->make<TH1F>("hID", "Id of hit AuxDet", 100,0.,5.);
-    //    _ntuple = tfs->make<TNtuple>("ntuple","Demo ntuple",
-    //			  "Event:Edep:em_Edep:nonem_Edep:xpos:ypos:zpos:time");
-
 } // end beginJob
 
 void larg4::CheckAuxDetHit::analyze(const art::Event& event) {

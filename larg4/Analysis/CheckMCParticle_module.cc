@@ -26,6 +26,8 @@ larg4::CheckMCParticle::CheckMCParticle(fhicl::ParameterSet const& p) :
 art::EDAnalyzer(p),
 _myName(p.get<std::string>("name", "CheckMCParticle")),
 _hnParts(0),
+_hmomentum(0),
+_hzpos(0),
 _directory(0),
 _file(0) {
 }
@@ -39,6 +41,8 @@ void larg4::CheckMCParticle::beginJob() {
     _directory = gDirectory;
     _file = gDirectory->GetFile();
     _hnParts = tfs->make<TH1F>("hnParts", "Number of generated Particles", 100, 0., 2000.);
+    _hmomentum = tfs->make<TH1F>("hmomentum", "momentum of single particle", 100, 0., 20.);
+    _hzpos = tfs->make<TH1F>("hzpos", "zposition of single particle", 100, -200, 200.);
 } // end beginJob
 
 void larg4::CheckMCParticle::analyze(const art::Event& event) {
@@ -49,23 +53,12 @@ void larg4::CheckMCParticle::analyze(const art::Event& event) {
         const  std::vector<simb::MCParticle> & gens(**i);
         _hnParts->Fill(gens.size());
         for (std::vector<simb::MCParticle>::const_iterator j = gens.begin(); j != gens.end(); ++j) {
-	  
             const  simb::MCParticle & genpart = *j;
-            cout << "Part id:  " << genpart.TrackId()  << endl;
-	    cout << "PDG id:  " << genpart.PdgCode()  << endl;
-	    cout << "Status Code:  " << genpart.StatusCode()  << endl;
-	    cout << "Mother:  " << genpart.Mother()  << endl;
 	    if (genpart.Mother()==0)
 	      {
-		cout << "momentum:  " <<   genpart.P() << endl;
-		cout << "position:  " << genpart.Vx()<< "  "<< genpart.Vy()<<"  "<< genpart.Vz()  << endl;
+		_hmomentum->Fill(genpart.P());
+		_hzpos ->Fill(genpart.Vz());
 	      } 
-	    // CLHEP::HepLorentzVector const& mom = genpart.PdgCode();
-            //cout << "Part Energy:  " << mom.e() << endl;
-            //cout << "invariant mass:  " << mom.invariantMass() << endl;
-            //cout << "momentum:  " << mom.pz() << endl;
-            //cout <<genpart<<endl;
-	  
         }
     }
 

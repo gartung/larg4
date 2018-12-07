@@ -10,8 +10,9 @@
 // 
 //=============================================================================
 // CheckSimEnergyDepositHit_module.cc: Analyzer module that demonstrates access to 
-// Calorimeter hits 
+// SimEnergyDepositHits
 // and makes some histograms
+// the histograms only make sense for a single MIP passing through the active volume of the liquid Ar TPC
 // 
 // Author: Hans Wenzel (Fermilab)
 //=============================================================================
@@ -27,8 +28,8 @@ _hEdep(0),
 _hnumPhotons(0),
 _hLandauPhotons(0),
 _hLandauEdep(0),
-_hSteplength(0),
-_ntuple(0) {
+_hSteplength(0)
+{
 }
 
 void larg4::CheckSimEnergyDeposit::beginRun(const art::Run& thisRun) {
@@ -38,14 +39,11 @@ void larg4::CheckSimEnergyDeposit::beginRun(const art::Run& thisRun) {
 void larg4::CheckSimEnergyDeposit::beginJob() {
     art::ServiceHandle<art::TFileService> tfs;
     _hnHits = tfs->make<TH1F>("hnHits", "Number of SimEnergyDeposits", 300, 0, 0);
-    _hEdep = tfs->make<TH1F>("hEdep", "Energy deposition in SimEnergyDeposits", 100,0.,0.02);
+    _hEdep = tfs->make<TH1F>("hEdep", "Energy deposition in SimEnergyDeposits", 100,0.,0.05);
     _hnumPhotons = tfs->make<TH1F>("hnumPhotons", "number of photons per  SimEnergyDeposit", 100,0.,500.);
     _hLandauPhotons= tfs->make<TH1F>("hLandauPhotons", "number of photons/cm", 100,0.,2000000.);
     _hLandauEdep= tfs->make<TH1F>("hLandauEdep", "Edep/cm", 100,0.,10.);
     _hSteplength= tfs->make<TH1F>("hSteplength", "geant 4 step length", 100,0.,0.05);
-    _ntuple = tfs->make<TNtuple>("ntuple","Demo ntuple",
-			  "Event:Edep:em_Edep:nonem_Edep:xpos:ypos:zpos:time");
-
 } // end beginJob
 
 void larg4::CheckSimEnergyDeposit::analyze(const art::Event& event) {
@@ -61,24 +59,14 @@ void larg4::CheckSimEnergyDeposit::analyze(const art::Event& event) {
       _hnHits->Fill(sims.size());
       for (sim::SimEnergyDepositCollection::const_iterator j = sims.begin(); j != sims.end(); ++j) {
 	const sim::SimEnergyDeposit& hit = *j;
-	// sum up energy deposit in a 1cm slice of liquid Argon. 
+	// sum up energy deposit in a 1 cm slice of liquid Argon. 
 	if (std::abs(hit.EndZ())<0.5) {
 	  sumPhotons= sumPhotons + hit.NumPhotons();
 	  sumE= sumE +hit.Energy();
 	}
 	_hnumPhotons->Fill( hit.NumPhotons());
 	_hEdep->Fill( hit.Energy());   // energy deposit in MeV
-	_hSteplength->Fill( hit.StepLength()); // step length in cm
-	/*
-	  _ntuple->Fill(event.event(),
-	  hit.GetEdep(),
-	  hit.GetEdepEM(),
-	  hit.GetEdepnonEM(),
-	  hit.GetXpos(),
-	  hit.GetYpos(),
-	  hit.GetZpos(),
-	  hit.GetTime());
-	*/
+	_hSteplength->Fill( hit.StepLength()); // step length in cm	
       }
       _hLandauPhotons->Fill(sumPhotons);
       _hLandauEdep->Fill(sumE);

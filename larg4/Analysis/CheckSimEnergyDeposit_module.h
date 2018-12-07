@@ -32,11 +32,7 @@
 // Root includes.
 #include "TFile.h"
 #include "TH1F.h"
-#include "TH2F.h"
-#include "TNtuple.h"
 #include "TDirectory.h"
-// Other includes.
-#include "CLHEP/Units/SystemOfUnits.h"
 
 using namespace std;
 namespace larg4 {
@@ -54,14 +50,12 @@ public:
 
 private:
 
-
   TH1F* _hnHits;        // number of SimEnergyDepositHits
   TH1F* _hEdep;        //  average energy deposition in SimEnergyDepositHits
   TH1F* _hnumPhotons;   //  number of Photons per SimEnergyDepositHits
   TH1F* _hLandauPhotons;//  Edep/cm  SimEnergyDepositHits
   TH1F* _hLandauEdep;   //  number of Photons/cm SimEnergyDepositHits
   TH1F* _hSteplength;   //  Geant 4 step length
-  TNtuple* _ntuple;
 };
 
 #endif	/* CHECKSIMENERGYDEPOSIT_MODULE_HH */

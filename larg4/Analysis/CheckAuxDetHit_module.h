@@ -32,12 +32,7 @@
 // Root includes.
 #include "TFile.h"
 #include "TH1F.h"
-#include "TH2F.h"
-#include "TNtuple.h"
 #include "TDirectory.h"
-// Other includes.
-#include "CLHEP/Units/SystemOfUnits.h"
-
 
 //using namespace std;
 namespace larg4 {
