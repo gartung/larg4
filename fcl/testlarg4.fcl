@@ -37,7 +37,7 @@ standard_singlep:
 process_name:processA
 source: {
   module_type: EmptyEvent
-  maxEvents:  100
+  maxEvents:  1000
 }
 services: {
   message : {
@@ -55,7 +55,7 @@ services: {
   }
   TFileService :
   {
-    fileName      : "CheckSimEnergyDeposit.root"
+    fileName      : "testlarg4.root"
   }
 
 
