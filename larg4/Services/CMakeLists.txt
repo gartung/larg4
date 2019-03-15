@@ -7,10 +7,18 @@ simple_plugin(
     SimEnergyDepositSD.cc
     AuxDetSD.cc	
   NOP
+    ${ART_FRAMEWORK_CORE}
+    ${ART_FRAMEWORK_PRINCIPAL}
+    ${ART_PERSISTENCY_PROVENANCE}
+    #${ARTG4TK_PLUGINDETECTORS_GDML}
+    #${ARTG4TK_SERVICES_DETECTORHOLDER_SERVICE}
+    artg4tk_pluginDetectors_gdml
+    artg4tk_services_DetectorHolder_service
+    ${CLHEP}
     ${G4_LIB_LIST}
+    ${MF_MESSAGELOGGER}
+    ${ROOT_BASIC_LIB_LIST}
     ${XERCESCLIB}
-
-
 )
 
 install_headers() 

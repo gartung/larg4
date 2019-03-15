@@ -15,7 +15,7 @@ cet_cmake_env()
 
 cet_set_compiler_flags(DIAGS CAUTIOUS
 WERROR
-EXTRA_FLAGS -pedantic -Wno-undef
+EXTRA_FLAGS -pedantic -Wno-undef -Wl,--no-allow-shlib-undefined
 )
 
 cet_report_compiler_flags()
@@ -37,6 +37,8 @@ find_ups_product(larcore)
 find_ups_product(larevt)
 find_ups_product(xerces_c)
 find_ups_product(nutools)
+find_ups_product(clhep)
+find_ups_boost()
 find_ups_geant4()
 
 # macros for dictionary and simple_plugin

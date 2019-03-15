@@ -1,6 +1,10 @@
 art_make(
   MODULE_LIBRARIES
     art_Framework_Services_Optional_TFileService_service
+    art_Framework_Services_Optional
+    art_Framework_Services_Registry
+    art_Persistency_Provenance
     ${G4_LIB_LIST}
     ${XERXESCLIB}
+    ROOT_BASIC_LIB_LIST
 )
