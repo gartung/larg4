@@ -4,6 +4,7 @@ art_make(
     art_Framework_Services_Optional
     art_Framework_Services_Registry
     art_Persistency_Provenance
+    nusimdata_SimulationBase
     ${G4_LIB_LIST}
     ${XERXESCLIB}
     ROOT_BASIC_LIB_LIST
