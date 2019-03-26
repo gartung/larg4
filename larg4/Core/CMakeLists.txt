@@ -1,22 +1,30 @@
-# Core directory
-
-# Contains the action objects, run manager, physics list, and generic
-# detector construction class.
-
-# Create a library called "artg4tk_core"
 art_make(
-MODULE_LIBRARIES
-  artg4tk_actionBase
-  artg4tk_geantInit
-  artg4tk_pluginDetectors_gdml
-  artg4tk_services_PhysicsListHolder_service
-  ${G4_LIB_LIST}
-  larg4_pluginActions_ParticleListAction_service
-  nutools_G4Base
-  nutools_ParticleNavigation
-  ${ROOT_BASIC_LIB_LIST}
-  ${XERCESCLIB}
+  MODULE_LIBRARIES
+    art_Framework_Core
+    art_Framework_Principal
+    art_Framework_Services_Registry
+    artg4tk_geantInit
+    artg4tk_services_ActionHolder_service
+    artg4tk_services_DetectorHolder_service
+    artg4tk_services_PhysicsListHolder_service
+    art_Persistency_Provenance
+    art_Utilities
+    ${Boost_FILESYSTEM_LIBRARY}
+    ${Boost_SYSTEM_LIBRARY}
+    canvas
+    cetlib
+    cetlib_except
+    clhep
+    fhiclcpp
+    ${G4EVENT}
+    ${G4INTERCOMS}
+    ${G4INTERFACES}
+    ${G4RUN}
+    ${G4TRACKING}
+    larg4_pluginActions_ParticleListAction_service
+    MF_MessageLogger
+    ${ROOT_CORE}
+    ${ROOT_PHYSICS}
 )
 
-# Install header files into the products area
-install_headers() 
+install_headers()

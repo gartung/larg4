@@ -1,24 +1,34 @@
-set_source_files_properties(LArG4Detector_service.cc PROPERTIES COMPILE_FLAGS -I$ENV{G4INCLUDE}/Geant4 )
-
 simple_plugin(
   LArG4Detector service
   SOURCE
     LArG4Detector_service.cc
     SimEnergyDepositSD.cc
-    AuxDetSD.cc	
+    AuxDetSD.cc
   NOP
-    ${ART_FRAMEWORK_CORE}
-    ${ART_FRAMEWORK_PRINCIPAL}
-    ${ART_PERSISTENCY_PROVENANCE}
-    #${ARTG4TK_PLUGINDETECTORS_GDML}
-    #${ARTG4TK_SERVICES_DETECTORHOLDER_SERVICE}
+    art_Framework_Core
+    art_Framework_Principal
+    art_Framework_Services_Registry
+    artg4tk_DataProducts_G4DetectorHits
     artg4tk_pluginDetectors_gdml
     artg4tk_services_DetectorHolder_service
-    ${CLHEP}
-    ${G4_LIB_LIST}
-    ${MF_MESSAGELOGGER}
-    ${ROOT_BASIC_LIB_LIST}
-    ${XERCESCLIB}
+    art_Persistency_Provenance
+    ${Boost_FILESYSTEM_LIBRARY}
+    ${Boost_SYSTEM_LIBRARY}
+    canvas
+    cetlib
+    cetlib_except
+    clhep
+    fhiclcpp
+    ${G4DIGITS_HITS}
+    ${G4EVENT}
+    ${G4GEOMETRY}
+    ${G4GLOBAL}
+    ${G4MATERIALS}
+    ${G4PERSISTENCY}
+    larcorealg_Geometry
+    MF_MessageLogger
+    ${ROOT_CORE}
+    ${XERCESC}
 )
 
-install_headers() 
+install_headers()

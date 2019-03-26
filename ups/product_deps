@@ -23,10 +23,6 @@ defaultqual e17
 # gdmldir -
 # fwdir   -
 #
-incdir  product_dir     include
-libdir  fq_dir          lib
-bindir  fq_dir          bin
-fcldir  product_dir     fcl
 gdmldir product_dir     gdml
 
 # With "product  version" table below, we now define dependencies
@@ -41,11 +37,11 @@ end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
 # Make a table by adding columns before "notes".
-qualifier        artg4tk      larevt            larsim    notes
-e17:debug        e17:debug    e17:debug         e17:debug
-e17:prof         e17:prof     e17:prof          e17:prof
-c2:debug         c2:debug     c2:debug          c2:debug
-c2:prof          c2:prof      c2:prof           c2:prof
+qualifier       artg4tk         larevt          larsim          notes
+e17:debug       e17:debug       e17:debug       e17:debug
+e17:prof        e17:prof        e17:prof        e17:prof
+c2:debug        c2:debug        c2:debug        c2:debug
+c2:prof         c2:prof         c2:prof         c2:prof
 end_qualifier_list
 
 # Preserve tabs and formatting in emacs and vi / vim:
