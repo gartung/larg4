@@ -2,7 +2,7 @@
 
 # The *parent* line must the first non-commented line and defines this product and version
 # The version should be of the form vxx_yy_zz (e.g. v01_02_03)
-parent larg4 v08_01_09
+parent larg4 v08_01_11
 defaultqual e17
 
 # These optional lines define the installed directories where headers,
@@ -31,17 +31,16 @@ gdmldir product_dir     gdml
 product          version
 artg4tk         v09_02_00
 larevt          v08_02_05
-larsim          v08_04_01
 cetbuildtools   v7_11_00       -       only_for_build
 end_product_list
 
 # We now define allowed qualifiers and the corresponding qualifiers for the depdencies.
 # Make a table by adding columns before "notes".
-qualifier       artg4tk         larevt          larsim          notes
-e17:debug       e17:debug       e17:debug       e17:debug
-e17:prof        e17:prof        e17:prof        e17:prof
-c2:debug        c2:debug        c2:debug        c2:debug
-c2:prof         c2:prof         c2:prof         c2:prof
+qualifier       artg4tk         larevt          notes
+e17:debug       e17:debug       e17:debug
+e17:prof        e17:prof        e17:prof        
+c2:debug        c2:debug        c2:debug        
+c2:prof         c2:prof         c2:prof         
 end_qualifier_list
 
 # Preserve tabs and formatting in emacs and vi / vim:
