@@ -1,3 +1,4 @@
+set(CMAKE_CXX_FLAGS "${Geant4_CXX_FLAGS} -Wno-shadow -Wno-unused-parameter")
 simple_plugin(
   LArG4Detector service
   SOURCE
@@ -19,15 +20,10 @@ simple_plugin(
     cetlib_except
     clhep
     fhiclcpp
-    ${G4DIGITS_HITS}
-    ${G4EVENT}
-    ${G4GEOMETRY}
-    ${G4GLOBAL}
-    ${G4MATERIALS}
-    ${G4PERSISTENCY}
+    ${Geant4_LIBRARIES}
     larcorealg_Geometry
     MF_MessageLogger
-    ${ROOT_CORE}
+    ${ROOT_Core_LIBRARY}
     ${XERCESC}
 )
 

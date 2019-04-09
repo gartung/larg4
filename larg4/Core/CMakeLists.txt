@@ -16,15 +16,11 @@ art_make(
     cetlib_except
     clhep
     fhiclcpp
-    ${G4EVENT}
-    ${G4INTERCOMS}
-    ${G4INTERFACES}
-    ${G4RUN}
-    ${G4TRACKING}
+    ${Geant4_LIBRARIES}
     larg4_pluginActions_ParticleListAction_service
     MF_MessageLogger
-    ${ROOT_CORE}
-    ${ROOT_PHYSICS}
+    ${ROOT_Core_LIBRARY}
+    ${ROOT_Physics_LIBRARY}
 )
 
 install_headers()
