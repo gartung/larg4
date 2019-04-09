@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.7)
+# use cmake 3.11 or later
+cmake_minimum_required (VERSION 3.11)
 
-project(larg4)
+project(larg4 VERSION 08.01.10 LANGUAGES CXX)
 
-find_package(cetbuildtools REQUIRED)
-
-list(APPEND CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules $ENV{ART_DIR}/Modules)
-
+find_package( cetmodules )
+set(fcl_dir job)
+set(gdml_dir gdml)
 include(CetCMakeEnv)
 cet_cmake_env()
 
@@ -19,41 +19,26 @@ cet_set_compiler_flags(DIAGS CAUTIOUS WERROR NO_UNDEFINED EXTRA_FLAGS -pedantic)
 
 cet_report_compiler_flags()
 
-find_ups_product(art)
-find_ups_product(art_root_io)
-find_ups_product(artg4tk)
-find_ups_product(canvas)
-find_ups_product(canvas_root_io)
-find_ups_product(cetlib)
-find_ups_product(clhep)
-find_ups_product(fhiclcpp)
-find_ups_geant4()
-find_ups_product(larcore)
-find_ups_product(larcoreobj)
-find_ups_product(lardataalg)
-find_ups_product(lardataobj)
-find_ups_product(messagefacility)
-find_ups_product(nusimdata)
-find_ups_product(nutools)
-
+find_package(artg4tk REQUIRED)
+find_package(larevt REQUIRED)
+include(${Geant4_USE_FILE})
+# macros for dictionary and simple_plugin
 include(ArtDictionary)
 include(ArtMake)
 include(BuildPlugins)
 
-# artg4tk
-cet_find_library( ARTG4TK_ACTIONBASE NAMES artg4tk_actionBase PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH )
-cet_find_library( ARTG4TK_GEANTINIT NAMES artg4tk_geantInit PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH )
-cet_find_library( ARTG4TK_PLUGINDETECTORS_GDML NAMES artg4tk_pluginDetectors_gdml PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH )
-cet_find_library(ARTG4TK_DATAPRODUCTS_G4DETECTORHITS NAMES artg4tk_DataProducts_G4DetectorHits PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH)
-cet_find_library(ARTG4TK_SERVICES_ACTIONHOLDER_SERVICE NAMES artg4tk_services_ActionHolder_service PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH)
-cet_find_library(ARTG4TK_SERVICES_PHYSICSLISTHOLDER_SERVICE NAMES artg4tk_services_PhysicsListHolder_service PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH)
-cet_find_library(ARTG4TK_SERVICES_DETECTORHOLDER_SERVICE NAMES artg4tk_services_DetectorHolder_service PATHS ENV ARTG4TK_LIB NO_DEFAULT_PATH)
+# artgktk
+cet_find_library( ARTG4TK_ACTIONBASE NAMES artg4tk_actionBase )
+cet_find_library( ARTG4TK_GEANTINIT NAMES artg4tk_geantInit )
+cet_find_library( ARTG4TK_PLUGINDETECTORS_GDML NAMES artg4tk_pluginDetectors_gdml )
+cet_find_library(ARTG4TK_DATAPRODUCTS_G4DETECTORHITS NAMES artg4tk_DataProducts_G4DetectorHits )
+cet_find_library(ARTG4TK_SERVICES_ACTIONHOLDER_SERVICE NAMES artg4tk_services_ActionHolder_service )
+cet_find_library(ARTG4TK_SERVICES_PHYSICSLISTHOLDER_SERVICE NAMES artg4tk_services_PhysicsListHolder_service )
+cet_find_library(ARTG4TK_SERVICES_DETECTORHOLDER_SERVICE NAMES artg4tk_services_DetectorHolder_service )
 
 add_subdirectory(fcl)
 add_subdirectory(gdml)
-add_subdirectory(larg4)
-add_subdirectory(ups)
-
+#add_subdirectory(ups)
+add_subdirectory(cmakeConfig)
 # packaging utility
-# this has to be last
-include(UseCPack)
+#include(UseCPack)

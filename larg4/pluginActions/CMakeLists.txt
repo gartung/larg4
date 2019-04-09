@@ -1,3 +1,4 @@
+set(CMAKE_CXX_FLAGS "${Geant4_CXX_FLAGS} -Wno-shadow -Wno-unused-parameter")
 simple_plugin(
   MCTruthEventAction service
 NOP
@@ -12,13 +13,12 @@ NOP
   cetlib_except
   clhep
   fhiclcpp
-  ${G4GLOBAL}
-  ${G4PARTICLES}
+  ${Geant4_LIBRARIES}
   MF_MessageLogger
   nusimdata_SimulationBase
   nutools_G4Base
-  ${ROOT_CORE}
-  ${ROOT_PHYSICS}
+  ${ROOT_Core_LIBRARY}
+  ${ROOT_Physics_LIBRARY}
 SOURCE
   MCTruthEventAction_service.cc
 )
@@ -38,13 +38,13 @@ NOP
   artg4tk_services_ActionHolder_service
   art_Persistency_Provenance
   clhep
-  ${G4PARTICLES}
+  ${Geant4_LIBRARIES}
   MF_MessageLogger
   nusimdata_SimulationBase
   nutools_G4Base
   nutools_ParticleNavigation
-  ${ROOT_CORE}
-  ${ROOT_PHYSICS}
+  ${ROOT_Core_LIBRARY}
+  ${ROOT_Physics_LIBRARY}
 SOURCE
   ParticleListAction_service.cxx
 )

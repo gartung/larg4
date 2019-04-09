@@ -118,9 +118,9 @@ std::vector<G4LogicalVolume *> larg4::LArG4DetectorService::doBuildLVs() {
             << std::endl << std::endl;
     for (G4GDMLAuxMapType::const_iterator iter = auxmap->begin();
             iter != auxmap->end(); iter++) {
-        G4cout << "Volume " << ((*iter).first)->GetName()
+        /*G4cout << "Volume " << ((*iter).first)->GetName()
                 << " has the following list of auxiliary information: "
-                << G4endl;
+                << G4endl;*/
         for (G4GDMLAuxListType::const_iterator vit = (*iter).second.begin();
                 vit != (*iter).second.end(); vit++) {
             std::cout << "--> Type: " << (*vit).type
@@ -203,8 +203,8 @@ std::vector<G4LogicalVolume *> larg4::LArG4DetectorService::doBuildLVs() {
     }
     if (dumpMP_)
       {
-	G4cout << *(G4Material::GetMaterialTable());
 	/*
+	G4cout << *(G4Material::GetMaterialTable());
 	G4Region* region = G4RegionStore::GetInstance()->GetRegion("DefaultRegionForTheWorld", false);
 	std::vector<G4Material*>::const_iterator mItr = region->GetMaterialIterator();
 	size_t nMaterial = region->GetNumberOfMaterials();
