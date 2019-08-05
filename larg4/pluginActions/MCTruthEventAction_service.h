@@ -18,19 +18,14 @@
 #define EXAMPLE_MCTRUTHEVENTACTION_SERVICE_HH
 
 // Includes
-#include "fhiclcpp/ParameterSet.h"
+#include "art/Framework/Services/Registry/ServiceMacros.h"
+#include "fhiclcpp/fwd.h"
 #include "messagefacility/MessageLogger/MessageLogger.h"
 
-#include "art/Framework/Services/Registry/ServiceMacros.h"
-#include "art/Framework/Core/EDProducer.h"
-
-#include "Geant4/G4Event.hh"
-#include "Geant4/G4VPrimaryGenerator.hh"
-#include "Geant4/G4VUserPrimaryGeneratorAction.hh"
-#include "Geant4/G4ParticleTable.hh"
-#include "Geant4/globals.hh"
-// nutools includes
-#include "nug4/G4Base/ConvertMCTruthToG4.h"
+#include "Geant4/G4ThreeVector.hh"
+#include "Geant4/G4Types.hh"
+class G4Event;
+class G4ParticleTable;
 
 // Get the base class
 #include "artg4tk/actionBase/PrimaryGeneratorActionBase.hh"

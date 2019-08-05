@@ -3,19 +3,13 @@
 // Author: Hans Wenzel (Fermilab)
 //=============================================================================
 #ifndef AuxDetSD_h
-#define AuxDetSD_h 1
-#include "lardataobj/Simulation/AuxDetHit.h"
-#include "larcore/Geometry/Geometry.h"
-#include "Geant4/G4VSensitiveDetector.hh"
+#define AuxDetSD_h
 
-#if defined __clang__
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wunused-private-field"
-#endif
+#include "lardataobj/Simulation/AuxDetHit.h"
+#include "Geant4/G4VSensitiveDetector.hh"
 
 class G4Step;
 class G4HCofThisEvent;
-class AuxDetHitCollection;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 namespace larg4 {
@@ -32,9 +26,5 @@ namespace larg4 {
       sim::AuxDetHitCollection hitCollection;
     };
 }   // namespace larg4
-#if defined __clang__
-  #pragma clang diagnostic pop
-#endif
 
 #endif
-

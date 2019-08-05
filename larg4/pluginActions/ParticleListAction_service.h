@@ -10,25 +10,22 @@
 
 #ifndef PARTICLELISTACTION_SERVICE_H
 #define PARTICLELISTACTION_SERVICE_H
-// Includes
-//#include "fhiclcpp/ParameterSet.h"
-#include "messagefacility/MessageLogger/MessageLogger.h"
-#include "art/Framework/Core/ProductRegistryHelper.h"
+
 #include "art/Framework/Services/Registry/ServiceMacros.h"
-#include "art/Persistency/Provenance/ModuleDescription.h"
+#include "canvas/Persistency/Common/Assns.h"
 
 #include "larg4/pluginActions/thePositionInVolumeFilter.h" // larg4::thePositionInVolumeFilter
-#include "nug4/ParticleNavigation/ParticleList.h" // larg4::PositionInVolumeFilter
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
 #include "nusimdata/SimulationBase/simb.h" // simb::GeneratedParticleIndex_t
+
 // Get the base classes
 #include "artg4tk/actionBase/EventActionBase.hh"
 #include "artg4tk/actionBase/TrackingActionBase.hh"
 #include "artg4tk/actionBase/SteppingActionBase.hh"
-#
-#
-#include "Geant4/globals.hh"
+
+#include "Geant4/G4Types.hh"
+
 #include <map>
 
 // Forward declarations.
@@ -44,8 +41,7 @@ namespace larg4 {
 
   class ParticleListActionService : public  artg4tk::EventActionBase,
                                     public  artg4tk::TrackingActionBase,
-                                    public  artg4tk::SteppingActionBase,
-    private art::ProductRegistryHelper
+                                    public  artg4tk::SteppingActionBase
   {
   public:
 
@@ -75,8 +71,6 @@ namespace larg4 {
       simb::GeneratedParticleIndex_t truthInfoIndex() const { return truthIndex; }
 
     }; // ParticleInfo_t
-    using art::ProductRegistryHelper::produces;
-    using art::ProductRegistryHelper::registerProducts;
 
 
     // Standard constructors and destructors;

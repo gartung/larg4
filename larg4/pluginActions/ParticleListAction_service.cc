@@ -13,11 +13,10 @@
 #include "messagefacility/MessageLogger/MessageLogger.h"
 
 // Framework includes
-#include "art/Framework/Core/ProducingService.h"
-// framework includes:
+#include "art/Framework/Principal/Event.h"
+#include "art/Framework/Principal/Handle.h"
 #include "art/Framework/Services/Registry/ServiceMacros.h"
 #include "canvas/Persistency/Common/Ptr.h"
-#include "Geant4/G4Event.hh"
 #include "Geant4/G4Track.hh"
 #include "Geant4/G4ThreeVector.hh"
 #include "Geant4/G4ParticleDefinition.hh"
@@ -30,8 +29,6 @@
 #include "Geant4/G4String.hh"
 
 #include <TLorentzVector.h>
-#include <TString.h>
-
 
 #include <algorithm>
 

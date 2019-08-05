@@ -43,17 +43,13 @@
 //
 // Geant 4 includes:
 #include "Geant4/G4SDManager.hh"
-#include "Geant4/G4VUserDetectorConstruction.hh"
 #include "Geant4/G4GDMLParser.hh"
-#include "Geant4/globals.hh"
 #include "Geant4/G4LogicalVolume.hh"
 #include "Geant4/G4LogicalVolumeStore.hh"
 #include "Geant4/G4VPhysicalVolume.hh"
 #include "Geant4/G4PhysicalVolumeStore.hh"
 #include "Geant4/G4UserLimits.hh"
-#include "Geant4/G4UnitsTable.hh"
-#include "Geant4/G4StepLimiter.hh"
-#include "Geant4/G4RegionStore.hh"
+
 // C++ includes
 
 using std::string;

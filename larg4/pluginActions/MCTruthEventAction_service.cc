@@ -1,18 +1,20 @@
 #include "larg4/pluginActions/MCTruthEventAction_service.h"
+
+#include "art/Framework/Principal/Event.h"
+#include "art/Framework/Principal/Handle.h"
 #include "art/Framework/Services/Registry/ServiceHandle.h"
+
 #include "artg4tk/services/ActionHolder_service.hh"
+
 // Geant4  includes
 #include "Geant4/G4Event.hh"
 #include "Geant4/G4ParticleTable.hh"
 #include "Geant4/G4IonTable.hh"
 #include "Geant4/G4PrimaryVertex.hh"
 #include "Geant4/G4ParticleDefinition.hh"
-//
 #include "nusimdata/SimulationBase/MCTruth.h"
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "nug4/G4Base/PrimaryParticleInformation.h"
-#include <iostream>
-#include <cmath>
 #include <CLHEP/Vector/LorentzVector.h>
 using std::string;
 
@@ -23,9 +25,7 @@ MCTruthEventActionService(fhicl::ParameterSet const & p)
 : PrimaryGeneratorActionBase(p.get<string>("name", "MCTruthEventActionService")),
 // Initialize our message logger
 logInfo_("MCTruthEventActionService")
-  //fConvertMCTruth    (nullptr)
  {
-  //    fConvertMCTruth = new ConvertMCTruthToG4;
 }
 
 // Create a primary particle for an event!

@@ -7,17 +7,16 @@
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
 
-
 // Art includes
 #include "art/Framework/Core/EDProducer.h"
 #include "art/Framework/Core/ModuleMacros.h"
 #include "art/Framework/Principal/Event.h"
 #include "art/Framework/Principal/Run.h"
+#include "messagefacility/MessageLogger/MessageLogger.h"
 
 // Local includes (like actions)
 #include "artg4tk/geantInit/ArtG4RunManager.hh"
 #include "artg4tk/geantInit/ArtG4DetectorConstruction.hh"
-
 
 // The actions
 #include "artg4tk/geantInit/ArtG4EventAction.hh"
@@ -27,18 +26,12 @@
 #include "artg4tk/geantInit/ArtG4StackingAction.hh"
 #include "artg4tk/geantInit/ArtG4TrackingAction.hh"
 #include "larg4/pluginActions/ParticleListAction_service.h" // combined actions.
+
 // Services
 #include "art/Framework/Services/Registry/ServiceHandle.h"
 #include "artg4tk/services/ActionHolder_service.hh"
 #include "artg4tk/services/DetectorHolder_service.hh"
-
 #include "artg4tk/services/PhysicsListHolder_service.hh"
-#include "art/Framework/Services/Optional/RandomNumberGenerator.h"
-
-#include "nug4/ParticleNavigation/ParticleList.h"
-#include "lardataobj/Simulation/GeneratedParticleInfo.h"
-
-#include "lardataalg/MCDumpers/MCDumpers.h"
 
 // G4 includes
 #ifdef G4VIS_USE

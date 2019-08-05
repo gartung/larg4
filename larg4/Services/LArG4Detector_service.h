@@ -1,57 +1,23 @@
-//
-//               __        __ __  __  __
-//   ____ ______/ /_____ _/ // / / /_/ /__
-//  / __ `/ ___/ __/ __ `/ // /_/ __/ //_/
-// / /_/ / /  / /_/ /_/ /__  __/ /_/ ,<
-// \__,_/_/   \__/\__, /  /_/  \__/_/|_|
-//               /____/
-//
-// artg4tk: art based Geant 4 Toolkit
-//
-//=============================================================================
-// GDMLDetector_service.hh:
-// GDMLDetectorService is the service that constructs the Geant 4 Geometry
-// as specified in a gdml file.
-// To use this service, all you need to do is put it in the services section
-// of the fcl configuration file, like this:
-//
-// <pre>
-// services: {
-//   ...
-//   user: {
-//     ...
-// GDMLDetector :
-//    {
-//    category: "world"
-//    gdmlFileName_ : "ta_target.gdml"
-//    }
-//   }
-// }
-// </pre>
-// Author: Hans Wenzel (Fermilab)
-//=============================================================================
-
-
-// Include guard
 #ifndef GDMLDETECTOR_SERVICE_HH
 #define GDMLDETECTOR_SERVICE_HH
 
-// Includes
-#include "fhiclcpp/ParameterSet.h"
-
-//#include "art/Framework/Services/Registry/ServiceMacros.h"
-#include "art/Framework/Core/EDProducer.h"
-
+// Framework includes
+#include "art/Framework/Services/Registry/ServiceMacros.h"
+#include "fhiclcpp/fwd.h"
 #include "messagefacility/MessageLogger/MessageLogger.h"
-
-#include <vector>
-#include <string>
-#include "Geant4/G4LogicalVolume.hh"
-#include "Geant4/G4VPhysicalVolume.hh"
+namespace art { class EDProducer; }
 
 // Get the base class
 #include "artg4tk/Core/DetectorBase.hh"
 
+// G4 dependencies
+class G4HCofThisEvent;
+class G4LogicalVolume;
+class G4VPhysicalVolume;
+
+// C++ STL
+#include <vector>
+#include <string>
 
 namespace larg4 {
 

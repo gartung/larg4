@@ -4,9 +4,7 @@
 #include "art/Framework/Principal/Handle.h"
 #include "art/Framework/Core/ModuleMacros.h"
 #include "art_root_io/TFileService.h"
-#include "art_root_io/TFileDirectory.h"
 #include "art/Framework/Services/Registry/ServiceHandle.h"
-#include "artg4tk/services/DetectorHolder_service.hh"
 #include "lardataobj/Simulation/SimEnergyDeposit.h"
 
 // Root includes.
@@ -14,10 +12,8 @@
 #include "TNtuple.h"
 
 // STL includes.
-#include <cmath>
-
-// Other includes.
-#include "CLHEP/Units/SystemOfUnits.h"
+#include <memory>
+#include <string>
 
 using namespace std;
 namespace larg4 {

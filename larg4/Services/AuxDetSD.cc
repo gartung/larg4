@@ -1,30 +1,13 @@
-//
-//               __        __ __  __  __
-//   ____ ______/ /_____ _/ // / / /_/ /__
-//  / __ `/ ___/ __/ __ `/ // /_/ __/ //_/
-// / /_/ / /  / /_/ /_/ /__  __/ /_/ ,<
-// \__,_/_/   \__/\__, /  /_/  \__/_/|_|
-//               /____/
-//
-// artg4tk: art based Geant 4 Toolkit
-//
 //=============================================================================
 // AuxDetSD.cc: Class representing a sensitive aux detector
 // Author: Hans Wenzel (Fermilab)
 //=============================================================================
+
 #include "larg4/Services/AuxDetSD.h"
-//#include "larg4/pluginActions/ParticleListAction_service.h"
-#include "Geant4/G4HCofThisEvent.hh"
 #include "Geant4/G4Step.hh"
 #include "Geant4/G4ThreeVector.hh"
-#include "Geant4/G4SDManager.hh"
-#include "Geant4/G4ios.hh"
-#include "Geant4/G4VVisManager.hh"
-#include "Geant4/G4Event.hh"
-#include "Geant4/G4EventManager.hh"
-#include "Geant4/G4VSolid.hh"
-#include "Geant4/G4UnitsTable.hh"
 #include "Geant4/G4SystemOfUnits.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 namespace larg4 {
 
@@ -70,4 +53,3 @@ void  AuxDetSD::Initialize(G4HCofThisEvent* ) {
   return true;
 }
 } // namespace sim
-

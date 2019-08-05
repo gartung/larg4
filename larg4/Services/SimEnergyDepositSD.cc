@@ -1,28 +1,11 @@
-//
-//               __        __ __  __  __
-//   ____ ______/ /_____ _/ // / / /_/ /__
-//  / __ `/ ___/ __/ __ `/ // /_/ __/ //_/
-// / /_/ / /  / /_/ /_/ /__  __/ /_/ ,<
-// \__,_/_/   \__/\__, /  /_/  \__/_/|_|
-//               /____/
-//
-// artg4tk: art based Geant 4 Toolkit
-//
 //=============================================================================
 // SimEnergyDeposit.cc: Class representing a sensitive tracking detector
 // Author: Hans Wenzel (Fermilab)
 //=============================================================================
 #include "larg4/Services/SimEnergyDepositSD.h"
-#include "Geant4/G4HCofThisEvent.hh"
 #include "Geant4/G4Step.hh"
 #include "Geant4/G4ThreeVector.hh"
-#include "Geant4/G4SDManager.hh"
-#include "Geant4/G4ios.hh"
-#include "Geant4/G4VVisManager.hh"
-#include "Geant4/G4Event.hh"
 #include "Geant4/G4EventManager.hh"
-#include "Geant4/G4VSolid.hh"
-#include "Geant4/G4Cerenkov.hh"
 #include "Geant4/G4Scintillation.hh"
 #include "Geant4/G4SteppingManager.hh"
 

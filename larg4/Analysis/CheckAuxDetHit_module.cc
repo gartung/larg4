@@ -1,26 +1,20 @@
 // STL includes
-#include <cmath>
+#include <array>
+#include <string>
+#include <vector>
 
 // art Framework includes.
 #include "art/Framework/Core/EDAnalyzer.h"
 #include "art/Framework/Principal/Event.h"
 #include "art/Framework/Principal/Handle.h"
 #include "art/Framework/Core/ModuleMacros.h"
-#include "art_root_io/TFileDirectory.h"
 #include "art_root_io/TFileService.h"
 #include "art/Framework/Services/Registry/ServiceHandle.h"
-#include "art/Framework/Principal/Provenance.h"
-#include "artg4tk/services/DetectorHolder_service.hh"
+#include "fhiclcpp/fwd.h"
 #include "lardataobj/Simulation/AuxDetHit.h"
 
 // Root includes.
-#include "TFile.h"
 #include "TH1F.h"
-#include "TNtuple.h"
-#include "TDirectory.h"
-
-// Other includes.
-#include "CLHEP/Units/SystemOfUnits.h"
 
 namespace larg4 {
     class CheckAuxDetHit;
