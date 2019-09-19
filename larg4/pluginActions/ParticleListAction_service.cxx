@@ -65,6 +65,7 @@ namespace larg4 {
       artg4tk::TrackingActionBase("PLASTrackingActionBase"),
       artg4tk::SteppingActionBase("PLASSteppingActionBase"),
       fenergyCut(p.get<double>("EnergyCut",0.0*CLHEP::GeV)),
+      fparticleList(0),
       fstoreTrajectories( p.get<bool>("storeTrajectories",true)),
       fKeepEMShowerDaughters(p.get<bool>("keepEMShowerDaughters",true))
   {
@@ -498,8 +499,8 @@ namespace larg4 {
   updateDaughterInformation.SetParticleList( fparticleList );
   // Update the daughter information for each particle in the list.
   std::for_each(fparticleList->begin(),
-		fparticleList->end(),
-		updateDaughterInformation);
+                fparticleList->end(),
+                updateDaughterInformation);
   art::ServiceHandle<ActionHolderService> ahs;
   sim::ParticleList particleList = YieldList();
   art::Event * evt= getCurrArtEvent();
@@ -514,11 +515,12 @@ namespace larg4 {
           simb::MCParticle& p = *(iPartPair->second);
           ++nGeneratedParticles;
           partCol_->push_back(std::move(p));
-	  art::Ptr<simb::MCParticle> mcp_ptr = art::Ptr<simb::MCParticle>(pid_,partCol_->size()-1,evt->productGetter(pid_));
+          art::Ptr<simb::MCParticle> mcp_ptr = art::Ptr<simb::MCParticle>(pid_,partCol_->size()-1,evt->productGetter(pid_));
           tpassn_->addSingle(mct, mcp_ptr);
         } // while(particleList)
     }
   }
+  ResetTrackIDOffset();
     // Every ACTION needs to write out their event data now
   ahs -> fillEventWithArtStuff();
 }
