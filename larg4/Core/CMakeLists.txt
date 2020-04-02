@@ -1,3 +1,4 @@
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Geant4_CXX_FLAGS} -Wno-shadow -Wno-unused-parameter")
 art_make(
   MODULE_LIBRARIES
     art_Framework_Core
@@ -9,22 +10,18 @@ art_make(
     artg4tk_services_PhysicsListHolder_service
     art_Persistency_Provenance
     art_Utilities
-    ${Boost_FILESYSTEM_LIBRARY}
-    ${Boost_SYSTEM_LIBRARY}
+    Boost::filesystem
+    Boost::system
     canvas
     cetlib
     cetlib_except
-    clhep
+    ${CLHEP_LIBRARIES}
+    ${Geant4_LIBRARIES}
     fhiclcpp
-    ${G4EVENT}
-    ${G4INTERCOMS}
-    ${G4INTERFACES}
-    ${G4RUN}
-    ${G4TRACKING}
     larg4_pluginActions_ParticleListAction_service
     MF_MessageLogger
-    ${ROOT_CORE}
-    ${ROOT_PHYSICS}
+    ROOT::Core
+    ROOT::Physics
 )
 
 install_headers()
